@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CursosService } from '../../../services/cursos/cursos.service'
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-listar',
@@ -6,10 +8,29 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./listar.component.css']
 })
 export class ListarComponent implements OnInit {
+  cursosList: any[] | undefined;
 
-  constructor() { }
+  constructor( private api: CursosService, private router:Router) {
+   }
 
   ngOnInit(): void {
-  }
+   
+this.api.getAllCursos().subscribe( data => {
+
+  this.cursosList=data
+})
+
+
+
+}
+
+nuevoCurso(){
+  this.router.navigate(['/cursos/agregar'])
+}
+
+
+editarCurso(id:any){
+  this.router.navigate(['/cursos/editar',id])
+}
 
 }
