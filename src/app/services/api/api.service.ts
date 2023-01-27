@@ -29,21 +29,16 @@ export class ApiService {
     
      }
 
-     putEstudiante(form:any):Observable<any>{
-      let direccion = this.url + "estudiantes"
+     putEstudiante(form:any, estudianteid:any):Observable<any>{
+      let direccion = this.url + "estudiantes/" + estudianteid
     return this.http.put<any>(direccion, form)
     
     }
 
-    delete(form:any):Observable<any>{
-      let direccion = this.url + "estudiantes"
-      let options = {
-    headers: new HttpHeaders({
-    'Content-type': 'application/json'
-    }),
-    body:form
-      }
-      return this.http.delete<any>(direccion, options)
+    delete(estudianteid:any ):Observable<any>{
+      let direccion = this.url + "estudiantes/" + estudianteid
+     
+      return this.http.delete<any>(direccion, estudianteid)
     }
 
 

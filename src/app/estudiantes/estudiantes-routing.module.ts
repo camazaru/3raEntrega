@@ -13,6 +13,8 @@ const routes: Routes = [
   ...canActivate(() => redirectUnauthorizedTo(['/auth/login'])) },
   { path: 'editar/:id', component: EditarComponent,
   ...canActivate(() => redirectUnauthorizedTo(['/auth/login'])) },
+  { path: 'eliminar/:id', component: EditarComponent,
+  ...canActivate(() => redirectUnauthorizedTo(['/auth/login'])) },
   
   { path: '**', component: ListarComponent },
   

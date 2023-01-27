@@ -38,15 +38,14 @@ datosEstudiante: any;
   }
 
   postForm(form:any){
-    this.api.putEstudiante(form).subscribe(data => {
-  let respuesta:any = data})
+    let estudianteid = this.activerouter.snapshot.paramMap.get('id');
+    this.api.putEstudiante(form, estudianteid).subscribe()
+
 }
 
 eliminar(){
-  
-  this.api.delete(this.editarForm).subscribe(data => {
-    let respuesta:any = data
-  })
+  let estudianteid = this.activerouter.snapshot.paramMap.get('id');
+  this.api.delete(estudianteid).subscribe()
     
   }
 
